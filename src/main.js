@@ -6,6 +6,15 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+// 引入重置样式
+import './assets/common.css';
+// 引入Vant 组件库
+import Vant from 'vant'
+import 'vant/lib/vant-css/index.css';
+Vue.use(Vant);
+// 引入工具包
+import util from './utils/util.js';
+Vue.prototype.$util = util;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -1,0 +1,71 @@
+/*重置样式表*/
+@charset "utf-8";
+html,body{
+	width:100%;
+	height: 100%;
+	-webkit-overflow-scrolling: touch;
+	-ms-text-size-adjust: 100%; 
+ 	-webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-user-select: none;
+}
+body,h1,h2,h3,h4,p,a,input,img,ul,li,ol,dl,dt,dd,button,
+header,footer,section,main,nav{
+    display:block;
+    margin:0;
+    padding:0;
+    border:0 none;
+}
+body{  
+	font-size:24px;
+    line-height: 1.2;
+    color:#000;
+    background: #fff;
+}
+ul,ol{
+    list-style:none;
+}
+img,img[src=""],img:not([src]){
+    display:block;
+    outline:0;
+    border:0;
+    opacity: 0;
+}
+img[lazy=loaded] {
+    -webkit-animation: opacity01 .3s;
+    animation: opacity01 .3s;
+}
+input{
+    outline:none;
+    user-select:none;
+    -webkit-user-select: auto;
+}
+a{
+    text-decoration:none;
+	color:#000;
+}
+i{font-style:normal;}
+/* 点击反馈 */
+*[feedback=active]:active{
+    background-color: #000;
+    opacity: 0.3;
+}
+*{
+    box-sizing:border-box;
+    -webkit-box-sizing: border-box;
+    user-select:none;
+    -webkit-touch-callout:none;  /*系统默认菜单被禁用*/
+    -webkit-user-select:none; /*webkit浏览器*/
+    -khtml-user-select:none; /*早期浏览器*/
+    -moz-user-select:none; /*火狐*/
+    -ms-user-select:none;  /*IE10*/
+}
+/* 图片懒加载显示 */
+@keyframes opacity01{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
