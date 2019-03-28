@@ -3,22 +3,31 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
-Vue.config.productionTip = false
+import store from './store/index.js';
+// 引入工具包
+import util from './utils/util.js';
 
 // 引入重置样式
 import './assets/common.css';
 // 引入Vant 组件库
-import Vant from 'vant'
+import Vant from 'vant';
 import 'vant/lib/vant-css/index.css';
+// 引入element组件库
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
 Vue.use(Vant);
-// 引入工具包
-import util from './utils/util.js';
+Vue.use(ElementUI);
+
 Vue.prototype.$util = util;
+
+Vue.config.productionTip = false
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
