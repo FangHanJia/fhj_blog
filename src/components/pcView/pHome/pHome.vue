@@ -21,6 +21,32 @@
                             </el-submenu>
                         </el-menu>
                     </el-col>
+                    <el-col :span="8" style="text-align: center;padding: 12px 0px 0px 10px">
+                        <el-row>
+                            <el-col :span="4">
+                                <el-popover placement="top" trigger="hover">
+                                    <div style="text-align:center;">
+                                        <el-progress color="#67C23A" type="circle" :percentage="music.volume"></el-progress><br>
+                                        <el-button @click="changeVolume(-10)" icon="el-icon-minus" circle></el-button>
+                                        <el-button @click="changeVolume(10)" icon="el-icon-plus" circle></el-button>
+                                    </div>
+                                    <el-button @click="play" id="play" slot="reference" :icon="music.isPlay?'el-icon-refresh':'el-icon-caret-right'" circle></el-button>
+                                </el-popover>
+                            </el-col>
+                            <el-col :span="14" style="padding-left: 20px">
+                                <el-slider @change="changeTime" :format-tooltip="$util.formatNumber" :max="music.maxTime" v-model="music.currentTime" style="width: 100%;"></el-slider>
+                            </el-col>
+                            <el-col :span="6" style="padding: 9px 0px 0px 10px;color:#909399;font-size: 13px">
+                                {{$util.formatNumber(music.currentTime)}}/{{$util.formatNumber(music.maxTime)}}
+                            </el-col>
+                        </el-row>
+                        <audio ref="music" loop autoplay v-if="audioAutoPlay">
+                            <source :src="audioUrl" type="audio/mpeg">
+                        </audio>
+                        <audio ref="music" loop v-else>
+                            <source :src="audioUrl" type="audio/mpeg">
+                        </audio>
+                    </el-col>
                 </el-row>
             </el-card>
         </nav>
@@ -34,6 +60,13 @@
                 topbar: {
                     active: "",
                 },
+                // 音乐配置
+                music:{
+                    isPlay:false,
+                    volume:30,
+                    maxTime:0,
+                    currentTime:0
+                }
             }
         },
         computed: {
@@ -44,7 +77,9 @@
                 'backgroundColorLeft',
                 'backgroundColorRight',
                 'blogSource',
-                'webSites'
+                'webSites',
+                'audioUrl',
+                'audioAutoPlay'
             ])
         },
         methods:{
@@ -62,7 +97,48 @@
                             window.open((url.match(/https?:\/\//i)?'':'https://') + url);
                         }
                 }
+            },
+            listenMusic(){
+                if(!this.$refs.music){
+                    return;
+                }
+                if(this.$refs.music.readyState){
+                    this.music.maxTime = this.$refs.music.duration;
+                }
+                this.music.isPlay = !this.$refs.music.paused;
+                this.music.currentTime = this.$refs.music.currentTime;
+            },
+            // 播放
+            play(){
+                if(this.$refs.music.paused){
+                    this.$refs.music.play();
+                }else{
+                    this.$refs.music.pause();
+                }
+                this.music.isPlay = !this.$refs.music.paused;
+                this.$nextTick(()=>{
+                    document.getElementById('play').blur();
+                });
+            },
+            // 音量操作
+            changeVolume(_v){
+                this.music.volume += _v;
+                if(this.music.volume >= 100){
+                    this.music.volume = 100;
+                }else if(this.music.volume <=0 ){
+                    this.music.volume = 0;
+                }
+                this.$refs.music.volume = this.music.volume / 100;
+            },
+            // 当前时间
+            changeTime(_time){
+                this.$refs.music.currentTime =_time;
             }
+        },
+        mounted(){
+            this.$nextTick(() => {
+                setInterval(this.listenMusic, 1000)
+            })
         }
     }
 </script>
