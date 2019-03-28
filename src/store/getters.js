@@ -10,7 +10,8 @@ const getters = {
     audioUrl: state => state.configuration.audioUrl,
     mini: state => state.configuration.mini,
     audioAutoPlay: state => state.configuration.audioAutoPlay,
-    webSite: state => state.configuration.webSite,
+    webSites: state => state.configuration.webSites,
     audioUrl: state => state.configuration.audioUrl,
+    blogSource: state => state.configuration.blogSource,
 }
 export default getters;

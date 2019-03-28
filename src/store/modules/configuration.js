@@ -11,7 +11,7 @@ const configuration = {
         backgroundColorRight:'',
         audioUrl:'',
         mini:false,
-        webSite:[],
+        webSites:[],
         audioAutoPlay:false
     },
     // 方法
@@ -31,8 +31,9 @@ const configuration = {
             state.backgroundColorRight = configuration['backgroundColorRight'] || '#159957';
             state.audioUrl = configuration['audioUrl'] || '';
             state.mini = configuration['mini'] || false;
-            state.webSite = configuration['webSite'] || [];
+            state.webSites = configuration['webSites'] || [];
             state.audioAutoPlay = configuration['audioAutoPlay'] || false;
+            state.blogSource = configuration['blogSource'] || false;
         }
     },
     // 执行方法的对象

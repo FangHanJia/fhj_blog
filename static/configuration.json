@@ -1,14 +1,15 @@
 {
-    "githubUsername": "Fanghanjia",
-    "blogTitle": "Fanghanjia",
-    "blogDescribe": "欢迎来到Fanghanjia的个人博客。",
+    "githubUsername": "FangHanJia",
+    "blogTitle": "FangHanJia",
+    "blogDescribe": "欢迎来到FangHanJia的个人博客。",
     "fontColor": "#ffffff",
     "useBackgroundImage": false,
     "backgroundColorLeft": "#409EFF",
-    "backgroundColorRight": "#F56C6C",
+    "backgroundColorRight": "#67C23A",
     "audioUrl": "http://sc1.111ttt.cn:8282/2018/1/03m/13/396131232171.m4a?tflag=1519095601&pin=6cd414115fdb9a950d827487b16b5f97#.mp3",
     "mini": false,
-    "webSite": [
+    "blogSource":"https://github.com/FangHanJia/fhj_blog",
+    "webSites": [
         {
             "name": "思否",
             "url": "https://segmentfault.com/u/fanghanjia"
