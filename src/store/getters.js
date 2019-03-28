@@ -13,5 +13,8 @@ const getters = {
     webSites: state => state.configuration.webSites,
     audioUrl: state => state.configuration.audioUrl,
     blogSource: state => state.configuration.blogSource,
+    location: state => state.user.location,
+    avatarUrl: state => state.user.avatarUrl,
+    name: state => state.user.name,
 }
 export default getters;

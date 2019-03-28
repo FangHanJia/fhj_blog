@@ -6,6 +6,7 @@ import router from './router'
 import store from './store/index.js';
 // 引入工具包
 import util from './utils/util.js';
+import requestHttp from './utils/requestHttp.js';
 
 // 引入重置样式
 import './assets/common.css';
@@ -19,7 +20,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(Vant);
 Vue.use(ElementUI);
 
+// 挂载
 Vue.prototype.$util = util;
+Vue.prototype.$requestHttp = requestHttp;
 
 Vue.config.productionTip = false
 

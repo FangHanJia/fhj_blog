@@ -47,6 +47,26 @@
                             <source :src="audioUrl" type="audio/mpeg">
                         </audio>
                     </el-col>
+                    <el-col :span="4" style="text-align: right;">
+                        <div style="font-size: 20px;color:#606266;margin-top: 5px">
+                            <b>{{githubUsername}}</b>
+                        </div>
+                        <div style="font-size: 16px;color:#606266;line-height:26px;">
+                            <i class="el-icon-location"></i>&nbsp;{{location?location:'未填写地址'}}
+                            <br>
+                        </div>
+                    </el-col>
+                    <el-col :span="2" style="text-align: center;">
+                        <img v-popover:bigAvatar :src="avatarUrl" style="margin-top: 4px;margin-left: 10px;width:52px; height:52px; border-radius:5px; border: 1px solid #EBEEF5"
+                        />
+                        <el-popover ref="bigAvatar" placement="top-start" :title="githubUsername" width="200" trigger="hover">
+                            <i class="el-icon-star-on"></i>&emsp;{{name}}
+                            <br>
+                            <i class="el-icon-location"></i>&emsp;{{location}}
+                            <br>
+                            <img :src="avatarUrl" style="width: 170px;height: 170px;">
+                        </el-popover>
+                    </el-col>
                 </el-row>
             </el-card>
         </nav>
@@ -79,7 +99,10 @@
                 'blogSource',
                 'webSites',
                 'audioUrl',
-                'audioAutoPlay'
+                'audioAutoPlay',
+                'location',
+                'avatarUrl',
+                'name'
             ])
         },
         methods:{
@@ -181,6 +204,7 @@
         }
         .pHome_nav{
             position: relative;
+            z-index:2;
             width: 64rem;
             margin: 0 auto;
             margin-top: -30px;

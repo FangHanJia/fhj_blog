@@ -29,7 +29,7 @@ img,img[src=""],img:not([src]){
     display:block;
     outline:0;
     border:0;
-    opacity: 0;
+    /* opacity: 0; */
 }
 img[lazy=loaded] {
     -webkit-animation: opacity01 .3s;

@@ -10,6 +10,8 @@
 		created(){
 			// 初始化数据
 			this.$store.dispatch('initData');
+			// 获取用户数据
+			this.$store.dispatch('getUserInfo');
 			// 监听窗口，切换终端
 			window.onresize = ()=>{
 				let windowSize = this.$util.getWindowSize();
