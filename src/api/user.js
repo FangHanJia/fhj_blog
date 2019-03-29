@@ -4,7 +4,7 @@ export default{
     // 身份验证
     verifToken:function(token){
         return requestHttp({
-            url:'/users/access_token=' + token
+            url:'/user?ccess_token=' + token
         })
     },
     // 获取用户信息
