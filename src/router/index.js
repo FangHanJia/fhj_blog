@@ -56,6 +56,13 @@ export const constantRouterMap = [
                 meta:{
                     title:'博客详情'
                 }
+            },{
+                path:'blogAdd',
+                component: resolve => require(['../components/pcView/blog/blogAdd.vue'], resolve),
+                name:'blogAdd',
+                meta:{
+                    title:'发表博客'
+                }
             }
         ]
     },

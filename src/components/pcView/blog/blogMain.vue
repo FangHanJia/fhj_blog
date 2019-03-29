@@ -107,7 +107,12 @@
             },
             // 添加博客
             goAdd(){
-
+                if(!this.token){
+                    this.$message({
+                        message:'请绑定有效的Token',
+                        type:'warning'
+                    });
+                }
             },
             // 博客详情
             goDetails(id){

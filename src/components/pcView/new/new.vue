@@ -1,7 +1,7 @@
 <template>
     <div style="min-height: 600px;" v-loading="loading">
         <el-card shadow="never" style="min-height: 400px" v-if="blog.id">
-            <div slot="header">
+            <div slot="header" style="text-align:center;">
                 <span>{{blog.title}}</span>
             </div>
             <div style="font-size: 0.9rem;line-height: 1.5;color: #606c71;">
