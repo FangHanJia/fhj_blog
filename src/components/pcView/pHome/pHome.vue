@@ -70,11 +70,22 @@
                 </el-row>
             </el-card>
         </nav>
+        <main class="pHome_main">
+            <el-row>
+                <el-col :span="6" style="padding-right:10px">
+                    <sidebar />
+                </el-col>  
+            </el-row>
+        </main>
     </div>
 </template>
 <script>
     import {mapGetters} from 'vuex';
+    import sidebar from '../common/sidebar.vue';
     export default {
+        components:{
+            sidebar
+        },
         data(){
             return{
                 topbar: {
@@ -208,6 +219,14 @@
             width: 64rem;
             margin: 0 auto;
             margin-top: -30px;
+        }
+        .pHome_main{
+            width: 64rem;
+            margin: 0 auto;
+            padding: 30px 0;
+            font-size: 1.1rem;
+            word-wrap: break-word;
+            min-height: 800px;
         }
     }
 </style>
