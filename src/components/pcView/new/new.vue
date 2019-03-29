@@ -1,5 +1,5 @@
 <template>
-    <div class="new_wrap" v-loading="loading">
+    <div style="min-height: 600px;" v-loading="loading">
         <el-card shadow="never" style="min-height: 400px" v-if="blog.id">
             <div slot="header">
                 <span>{{blog.title}}</span>
@@ -69,10 +69,3 @@
         }
     }
 </script>
-<style lang="scss" scoped>
-    .new_wrap{
-        min-height: 600px;
-    }
-</style>
-
-

@@ -1,6 +1,6 @@
 <template>
     <div class="appMain_wrap">
-        <transition name="fade">
+        <transition>
             <router-view>
             </router-view>
         </transition>

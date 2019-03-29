@@ -31,6 +31,34 @@ export const constantRouterMap = [
             }
         ]
     },
+    {
+        path:'/pc/blog',
+        redirect:'/pc/blog/blogMain',
+        component: resolve => require(['../components/pcView/pHome/pHome.vue'], resolve),
+        name:'blog',
+        meta:{
+            type:'user',
+            icon:'el-icon-edit-outline',
+            title:'博客列表'
+        },
+        children:[
+            {
+                path:'blogMain',
+                component: resolve => require(['../components/pcView/blog/blogMain.vue'], resolve),
+                name:'blogMain',
+                meta:{
+                    title:'博客列表'
+                }
+            },{
+                path:'blogDetails/:id',
+                component: resolve => require(['../components/pcView/blog/blogDetails.vue'], resolve),
+                name:'blogDetails',
+                meta:{
+                    title:'博客详情'
+                }
+            }
+        ]
+    },
     // mobile
     {
         path:'/mobile/mHome',

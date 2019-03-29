@@ -29,9 +29,14 @@
         },
         methods: {
             // 侧边栏切换
-            onSelect(){
-
+            onSelect(index){
+                this.$router.push(index);
             }
+        },
+        mounted(){
+            // 高亮
+            let arr = this.$route.path.split('/');
+            this.active = '/' + arr[1] + '/' + arr[2];
         }
     }
 </script>

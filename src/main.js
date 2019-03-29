@@ -32,6 +32,27 @@ Vue.prototype.$requestHttp = requestHttp;
 Vue.prototype.$markDown = function(value){
 	return mavonEditor.markdownIt.render(value);
 }
+Vue.prototype.$share = function(message){
+	if(!message){
+		message = window.location;
+	}else{
+		let arr = (window.location + '').split('#');
+		message = arr[0] + '#' +message;
+	}
+	if(util.copy(message)){
+		Vue.prototype.$confirm('链接已复制,去分享给好友吧！','分享',{
+			showCancelButton: false,
+			showClose: false,
+			type: 'success'
+		});
+	}else{
+		Vue.prototype.$confirm('链接复制失败,可能由于浏览器不兼容！','分享',{
+			showCancelButton:false,
+			showClose:false,
+			type:'warning'
+		});
+	}
+}
 
 Vue.config.productionTip = false
 
