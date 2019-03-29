@@ -73,18 +73,23 @@
         <main class="pHome_main">
             <el-row>
                 <el-col :span="6" style="padding-right:10px">
-                    <sidebar />
-                </el-col>  
+                    <Sidebar />
+                </el-col>
+                <el-col :span="18" style="padding-left:10px">
+                    <AppMain />
+                </el-col>
             </el-row>
         </main>
     </div>
 </template>
 <script>
     import {mapGetters} from 'vuex';
-    import sidebar from '../common/sidebar.vue';
+    import Sidebar from '../common/sidebar.vue';
+    import AppMain from '../common/appMain.vue';
     export default {
         components:{
-            sidebar
+            Sidebar,
+            AppMain
         },
         data(){
             return{

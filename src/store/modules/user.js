@@ -20,7 +20,6 @@ const user = {
         getUserInfo({commit}){
             userApi.getInfo().then(res=>{
                 let result = res.data;
-                console.log(result);
                 commit('SET_LOCATION',result['location']);
                 commit('SET_AVATARURL',result['avatar_url']);
                 commit('SET_NAME',result['name']);

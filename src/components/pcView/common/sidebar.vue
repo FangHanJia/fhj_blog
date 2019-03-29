@@ -12,7 +12,7 @@
     </div>
 </template>
 <script>
-    import { mapGetters } from 'Vuex';
+    import { mapGetters } from 'vuex';
     import { constantRouterMap } from '../../../router/index.js';
     export default {
         data(){

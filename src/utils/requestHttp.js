@@ -1,12 +1,29 @@
 import axios from 'axios';
 import Vue from 'vue';
+import store from '../store';
 
 // 创建axios
 const service = axios.create({
     baseURL:'https://api.github.com',
     timeout: 8000
 });
-
+// 追加access_token
+service.interceptors.response.use(
+    config=>{
+        let token = store.state.token.token;
+        if(token){
+            let sp = '?';
+            if(config.url.indexOf('?') >= 0){
+                sp = '&';
+            }
+            config.url = config.url + sp + 'access_token=' + token; 
+        }
+        return config;
+    },
+    error=>{
+        
+    }
+);
 // 中间拦截器
 service.interceptors.response.use(
     response=>{

@@ -49,7 +49,6 @@ const configuration = {
             xmlhttp.open('GET','../../../static/configuration.json',false);
             xmlhttp.send();
             let configuration = JSON.parse(xmlhttp.responseText);
-            console.log(configuration);            
             commit('SET_CONFIGURATION',configuration);
         }
     }

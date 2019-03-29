@@ -16,21 +16,30 @@ import 'vant/lib/vant-css/index.css';
 // 引入element组件库
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+// 引入富文本组件库
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+import 'mavon-editor/dist/markdown/github-markdown.min.css'
 
+// 全局使用
 Vue.use(Vant);
 Vue.use(ElementUI);
+Vue.use(mavonEditor);
 
 // 挂载
 Vue.prototype.$util = util;
 Vue.prototype.$requestHttp = requestHttp;
+Vue.prototype.$markDown = function(value){
+	return mavonEditor.markdownIt.render(value);
+}
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  components: { App },
-  template: '<App/>'
+	el: '#app',
+	router,
+	store,
+	components: { App },
+	template: '<App/>'
 })

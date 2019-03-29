@@ -12,6 +12,7 @@ export const constantRouterMap = [
     // pc
     {
         path:'/pc/pHome',
+        redirect:'/pc/pHome/new',
         component: resolve => require(['../components/pcView/pHome/pHome.vue'], resolve),
         name:'pHome',
         meta:{
@@ -19,7 +20,16 @@ export const constantRouterMap = [
             icon:'el-icon-star-off',
             title:'最新动态'
         },
-        children:[]
+        children:[
+            {
+                path:'new',
+                component: resolve => require(['../components/pcView/new/new.vue'], resolve),
+                name:'new',
+                meta:{
+                    title:'最新动态'
+                }
+            }
+        ]
     },
     // mobile
     {
