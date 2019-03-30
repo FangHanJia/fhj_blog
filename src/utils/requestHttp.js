@@ -10,20 +10,25 @@ const service = axios.create({
 // 请求头追加access_token
 service.interceptors.request.use(
     config => {
-        let token = store.state.token.token
-        if (token) {
-            let sp = "?"
-            if (config.url.indexOf("?") >= 0) {
-                sp = "&"
-            }
-            config.url = config.url + sp + "access_token=" + token + "&v=" + Date.now();
+        // 匹配域名
+        if(config.url.startsWith('http')){
+            config.baseURL = '';
         }else{
-            // 添加时间戳
-            let sp = "?"
-            if (config.url.indexOf("?") >= 0) {
-                sp = "&"
+            let token = store.state.token.token
+            if (token) {
+                let sp = "?"
+                if (config.url.indexOf("?") >= 0) {
+                    sp = "&"
+                }
+                config.url = config.url + sp + "access_token=" + token + "&v=" + Date.now();
+            }else{
+                // 添加时间戳
+                let sp = "?"
+                if (config.url.indexOf("?") >= 0) {
+                    sp = "&"
+                }
+                config.url = config.url + sp + 'v=' + Date.now();
             }
-            config.url = config.url + sp + 'v=' + Date.now();
         }
         return config
     },

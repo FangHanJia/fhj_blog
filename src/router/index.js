@@ -73,6 +73,27 @@ export const constantRouterMap = [
             }
         ]
     },
+    {
+        path:'/pc/bookShelf',
+        redirect:'/pc/bookShelf/bookMain',
+        component: resolve => require(['../components/pcView/pHome/pHome.vue'], resolve),
+        name:'bookShelf',
+        meta:{
+            type:'user',
+            icon:'el-icon-tickets',
+            title:'书架'
+        },
+        children:[
+            {
+                path:'bookMain',
+                component: resolve => require(['../components/pcView/bookShelf/bookMain.vue'], resolve),
+                name:'bookMain',
+                meta:{
+                    title:'书架'
+                }
+            }
+        ]
+    },
     // mobile
     {
         path:'/mobile/mHome',
