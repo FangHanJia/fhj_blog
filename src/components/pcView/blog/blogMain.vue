@@ -112,6 +112,8 @@
                         message:'请绑定有效的Token',
                         type:'warning'
                     });
+                }else{
+                    this.$router.push('/pc/blog/blogAdd');
                 }
             },
             // 博客详情
@@ -119,12 +121,40 @@
                 this.$router.push('/pc/blog/blogDetails/'+id);
             },
             // 编辑博客
-            editBlog(){
-
+            editBlog(index){
+                if(!this.token){
+                    this.$message({
+                        message: '请绑定有效的Token',
+                        type: 'warning'
+                    });
+                }else{
+                    this.$router.push('/pc/blog/blogEdit/' + this.blogs[index].id);
+                }
             },
             // 删除博客
-            deleteBlog(){
-
+            deleteBlog(index){
+                this.$confirm('是否永久删除该博客?','提示',{
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(()=>{
+                    let blog = this.blogs[index];
+                    this.loading = true;
+                    gistApi.deleteBlog(blog.id).then(res=>{
+                        this.$message({
+                            message: '删除成功',
+                            type: 'success'
+                        });
+                        this.blogs.splice(index,1);
+                        this.loading = false;
+                    }).catch(error=>{
+                        this.$message({
+                            message: '删除失败，请重试',
+                            type: 'error'
+                        });
+                        this.loading = false;
+                    })
+                });
             }
         }
     }

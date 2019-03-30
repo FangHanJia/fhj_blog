@@ -35,6 +35,7 @@
             return {
                 loading: false,
                 blog:{
+                    id:'',
                     title:'' || 'title',
                     description:'',
                     content:'',
@@ -67,11 +68,18 @@
         methods: {
             // 返回
             back(){
-                this.$router.go(-1);
+                this.$router.push('/pc/blog/blogMain');
             },
             // 编辑博客
             edit(){
-
+                if(!this.token){
+                    this.$message({
+                        message: '您的权限不足',
+                        type: 'warning'
+                    });
+                }else{
+                    this.$router.push('/pc/blog/blogEdit/' + this.blog.id);
+                }
             },
             // 更多博客
             more(){

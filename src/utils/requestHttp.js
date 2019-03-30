@@ -16,7 +16,14 @@ service.interceptors.request.use(
             if (config.url.indexOf("?") >= 0) {
                 sp = "&"
             }
-            config.url = config.url + sp + "access_token=" + token
+            config.url = config.url + sp + "access_token=" + token + "&v=" + Date.now();
+        }else{
+            // 添加时间戳
+            let sp = "?"
+            if (config.url.indexOf("?") >= 0) {
+                sp = "&"
+            }
+            config.url = config.url + sp + 'v=' + Date.now();
         }
         return config
     },

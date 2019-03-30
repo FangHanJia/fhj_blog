@@ -63,6 +63,13 @@ export const constantRouterMap = [
                 meta:{
                     title:'发表博客'
                 }
+            },{
+                path:'blogEdit/:id',
+                component: resolve => require(['../components/pcView/blog/blogEdit.vue'], resolve),
+                name:'blogEdit',
+                meta:{
+                    title:'博客编辑'
+                }
             }
         ]
     },

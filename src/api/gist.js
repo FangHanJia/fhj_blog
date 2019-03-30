@@ -14,5 +14,40 @@ export default{
         return requestHttp({
             url: '/gists/' + id
         });
+    },
+    // 添加博客
+    addBlog:function(form){
+        let files = {};
+        files[form.title] = { content: form.content};
+        return requestHttp({
+            url: '/gists',
+            method: 'post',
+            data: {
+                'description': form.description,
+                'public': true,
+                'files': files
+            }
+        });
+    },
+    // 编辑博客
+    editBlog:function(form){
+        let files = {};
+        files[form.title] = { content: form.content};
+        return requestHttp({
+            url: '/gists/' + form.id,
+            method: 'PATCH',
+            data: {
+                'description': form.description,
+                'public': true,
+                'files': files
+            }
+        });
+    },
+    // 删除博客
+    deleteBlog:function(id){
+        return requestHttp({
+            url: '/gists/' + id,
+            method:'DELETE'
+        });
     }
 }
