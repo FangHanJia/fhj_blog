@@ -98,7 +98,7 @@
                         type:'error'
                     });
                 })
-                // this.$router.push('/pc/blog/blogMain');
+                this.$router.push('/pc/blog/blogMain');
             }
         },
         methods:{
