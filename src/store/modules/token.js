@@ -38,6 +38,14 @@ const token = {
                     });
                 }
             })
+        },
+        // 注销token
+        cancelToken({ commit }){
+            commit('REMOVE_TOKEN');
+            Vue.prototype.$message({
+                message:'Token注销成功',
+                type:'info'
+            });
         }   
     }
 }

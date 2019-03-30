@@ -15,6 +15,10 @@
                 <el-tag type="danger" size="small">&nbsp;</el-tag>&nbsp;&nbsp; Token未绑定&nbsp;&nbsp;
                 <el-button type="text" @click="openTokenDialog">绑定</el-button>
             </div>
+            <div v-if="token" style="font-size: 0.9rem;line-height: 1.5;color: #303133;">
+                <el-tag type="success" size="small">&nbsp;</el-tag>&nbsp;&nbsp; Token已绑定&nbsp;&nbsp;
+                <el-button type="text" @click="cancelToken">注销</el-button>
+            </div>
         </el-card>
         <TokenDialog ref="tokenDialog" />
     </div>
@@ -47,6 +51,9 @@
             // 显示token弹窗
             openTokenDialog(){
                 this.$refs.tokenDialog.open();
+            },
+            cancelToken() {
+                this.$store.dispatch("cancelToken")
             }
         },
         mounted(){
