@@ -73,8 +73,8 @@
             // gitalk评论
             gitalkHandle(){
                 var gitalk = new Gitalk({
-                clientID: '21ca1ebb477fe6b4469b', // GitHub Application Client ID
-                clientSecret: '51de3c7afade0dd1ca8ba62ad00c321108970374', // GitHub Application Client Secret
+                clientID: 'c018f77406f8aefcd7d5', // GitHub Application Client ID
+                clientSecret: '80729c32a4c165687c825356097836f58963ac2d', // GitHub Application Client Secret
                 repo: 'fanghanjia.github.io',      // 存放评论的仓库
                 owner: 'fanghanjia',          // 仓库的创建者，
                 admin: ['fanghanjia'],        // 如果仓库有多个人可以操作，那么在这里以数组形式写出
