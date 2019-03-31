@@ -25,11 +25,14 @@
                 </div>
                 <div v-html="blog.content" class="markdown-body" style="padding-top: 20px"></div>
             </el-card>
+            <!-- 评论 -->
+            <div id="gitalk-container"></div>
         </div>
 </template>
 <script>
     import { mapGetters } from 'vuex';
     import gistApi from '../../../api/gist.js';
+    import Gitalk from 'gitalk';
     export default {
         data() {
             return {
@@ -50,6 +53,7 @@
             ])
         },
         mounted() {
+            this.gitalkHandle();
             this.loading = true
             this.blog.id = this.$route.params.id
             gistApi.getSingleNew(this.blog.id).then((response) => {
@@ -66,6 +70,19 @@
 
         },
         methods: {
+            // gitalk评论
+            gitalkHandle(){
+                var gitalk = new Gitalk({
+                clientID: '21ca1ebb477fe6b4469b', // GitHub Application Client ID
+                clientSecret: '51de3c7afade0dd1ca8ba62ad00c321108970374', // GitHub Application Client Secret
+                repo: 'fanghanjia.github.io',      // 存放评论的仓库
+                owner: 'fanghanjia',          // 仓库的创建者，
+                admin: ['fanghanjia'],        // 如果仓库有多个人可以操作，那么在这里以数组形式写出
+                id: decodeURI(window.location.hash.match(/#(.*?)([?]|$)/)[1]),      // 用于标记评论是哪个页面的，确保唯一，并且长度小于50
+                })
+
+                gitalk.render('gitalk-container');    // 渲染Gitalk评论组件
+            },
             // 返回
             back(){
                 this.$router.push('/pc/blog/blogMain');

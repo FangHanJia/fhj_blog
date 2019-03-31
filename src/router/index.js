@@ -50,9 +50,9 @@ export const constantRouterMap = [
                     title:'博客列表'
                 }
             },{
-                path:'blogDetails/:id',
+                path:'details/:id',
                 component: resolve => require(['../components/pcView/blog/blogDetails.vue'], resolve),
-                name:'blogDetails',
+                name:'details',
                 meta:{
                     title:'博客详情'
                 }

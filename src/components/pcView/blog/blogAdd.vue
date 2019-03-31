@@ -128,7 +128,7 @@
                                 message: '发表成功',
                                 type: 'success'
                             });
-                            this.$router.push('/pc/blog/blogDetails/' + result.id);
+                            this.$router.push('/pc/blog/details/' + result.id);
                         }).then(()=>{
                             this.submitButton.loading = false;
                             this.submitButton.disabled = false;

@@ -17,9 +17,12 @@ import 'vant/lib/vant-css/index.css';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 // 引入富文本组件库
-import mavonEditor from 'mavon-editor'
-import 'mavon-editor/dist/css/index.css'
-import 'mavon-editor/dist/markdown/github-markdown.min.css'
+import mavonEditor from 'mavon-editor';
+import 'mavon-editor/dist/css/index.css';
+import 'mavon-editor/dist/markdown/github-markdown.min.css';
+// 引入gitalk插件
+import 'gitalk/dist/gitalk.css';
+import Gitalk from 'gitalk';
 
 // 全局使用
 Vue.use(Vant);

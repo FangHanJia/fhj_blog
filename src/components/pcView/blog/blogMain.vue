@@ -118,7 +118,7 @@
             },
             // 博客详情
             goDetails(id){
-                this.$router.push('/pc/blog/blogDetails/'+id);
+                this.$router.push('/pc/blog/details/'+id);
             },
             // 编辑博客
             editBlog(index){
