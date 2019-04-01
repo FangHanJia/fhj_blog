@@ -7,13 +7,21 @@
 <script>
 	export default {
 		name: 'App',
-		created(){
+		mounted(){
 			// 初始化数据
 			this.$store.dispatch('initData');
 			// 获取用户数据
 			this.$store.dispatch('getUserInfo');
-			// 监听窗口，切换终端
+			// 切换终端
+			this.monitorHandle();
+			// 监听窗口
 			window.onresize = ()=>{
+				this.monitorHandle();
+			}
+		},
+		methods: {
+			// 切换终端
+			monitorHandle(){
 				let windowSize = this.$util.getWindowSize();
 				let pathArr = this.$route.path.split("/");
 				if(pathArr[1] == 'pc' && windowSize.height > windowSize.width * 1.2){
