@@ -80,16 +80,19 @@
                 </el-col>
             </el-row>
         </main>
+        <Footer></Footer>
     </div>
 </template>
 <script>
     import {mapGetters} from 'vuex';
     import Sidebar from '../common/sidebar.vue';
     import AppMain from '../common/appMain.vue';
+    import Footer from '../common/footer.vue';
     export default {
         components:{
             Sidebar,
-            AppMain
+            AppMain,
+            Footer
         },
         data(){
             return{
