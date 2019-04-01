@@ -90,6 +90,8 @@
     </div>
 </template>
 <script>
+    import { mapGetters } from 'vuex';
+    import projectApi from '../../../api/project.js';
     export default {
         data(){
             return{
@@ -97,8 +99,24 @@
                 configure:{
                     webSites: []
                 },
+                initConfigure:{},
+                configureSha:'',
                 rules:{
-
+                    githubUsername: [
+                        {
+                            required: true,message: '请输入用户名',trigger: 'blur'
+                        }
+                    ],
+                    blogTitle: [
+                        {
+                            required: true,message: '请输入博客标题',trigger: 'blur'
+                        }
+                    ],
+                    blogDescribe: [
+                        {
+                            required: true,message: '请输入博客描述',trigger: 'blur'
+                        }
+                    ]
                 },
                 activeTab:'base',
                 predefineColors: [
@@ -119,6 +137,36 @@
                 }
             }
         },
+        computed: {
+            ...mapGetters([
+                'token'
+            ])
+        },
+        mounted(){
+            if (!this.token) {
+                this.$nextTick(() => {
+                    this.$message({
+                        message: '权限不足',
+                        type: 'error'
+                    })
+                    this.$router.go(-1)
+                })
+                return
+            }
+            this.loading = true
+            projectApi.getBlogConfigure().then(res=>{
+                let result = res.data;
+                let base64 = require('js-base64').Base64;
+                let text = base64.decode(result.content);
+                this.configure = JSON.parse(text);
+                if(!this.configure.webSites){
+                    this.$set(this.configure,'webSites',[]);
+                }
+                // 深度复制
+                this.initConfigure = JSON.parse(JSON.stringify(this.configure));
+                this.configureSha = result.sha;
+            }).then(()=>{this.loading = false})
+        },
         methods: {
             removeWebSites(index){
                 this.configure.webSites.splice(index,1);
@@ -132,11 +180,30 @@
             },
             // 提交
             submitHandle(){
-
+                this.$refs['configureForm'].validate((valid)=>{
+                    if(valid){
+                        this.submitButton.loading = true;
+                        this.submitButton.disabled = true;
+                        projectApi.editBlogConfigure(this.configure,this.configureSha).then(res=>{
+                            let result = res.data;
+                            this.configureSha = result.content.sha;
+                            this.initConfigure = JSON.parse(JSON.stringify(this.configure));
+                            this.$store.dispatch('reloadLocal',this.configure);
+                            this.$notify({
+                                title: '成功',
+                                message: '修改配置成功',
+                                type: 'success'
+                            });
+                        })
+                    }
+                }).then(()=>{
+                    this.submitButton.loading = false;
+                    this.submitButton.disabled = false;
+                })
             },
             // 重置
             resetHandle(){
-
+                this.configure = JSON.parse(JSON.stringify(this.initConfigure));
             }
         }
     }

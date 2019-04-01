@@ -38,6 +38,10 @@ const configuration = {
     },
     // 执行方法的对象
     actions:{
+        // 重写本地配置数据
+        reloadLocal({ commit },configuration){
+            commit('SET_CONFIGURATION',configuration);
+        },
         // 初始化本地数据
         initData({commit}){
             let xmlhttp;
