@@ -20,7 +20,7 @@
                         </el-col>
                         <el-col :span="8">
                             <div style="text-align: right;">
-                                <el-button @click="$share('/pc/blog/blogDetails/'+item.id)" style="padding: 3px 0" type="text" icon="el-icon-share"></el-button>
+                                <el-button @click="$share('/pc/blog/details/'+item.id)" style="padding: 3px 0" type="text" icon="el-icon-share"></el-button>
                                 <el-button @click="editBlog(index)" style="padding: 3px 0" type="text" icon="el-icon-edit" v-if="token"></el-button>
                                 <el-button @click="deleteBlog(index)" style="padding: 3px 0" type="text" icon="el-icon-delete" v-if="token"></el-button>
                             </div>

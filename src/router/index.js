@@ -94,6 +94,28 @@ export const constantRouterMap = [
             }
         ]
     },
+    {
+        path:'/pc/system',
+        redirect:'/pc/system/systemMain',
+        component: resolve => require(['../components/pcView/pHome/pHome.vue'], resolve),
+        name:'system',
+        meta:{
+            type:'user',
+            icon:'el-icon-setting',
+            title:'系统配置',
+            LoginRequired: true
+        },
+        children:[
+            {
+                path:'systemMain',
+                component: resolve => require(['../components/pcView/system/systemMain.vue'], resolve),
+                name:'systemMain',
+                meta:{
+                    title:'系统配置'
+                }
+            }
+        ]
+    },
     // mobile
     {
         path:'/mobile/mHome',
