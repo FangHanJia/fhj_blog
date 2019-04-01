@@ -194,11 +194,11 @@
                                 message: '修改配置成功',
                                 type: 'success'
                             });
+                        }).then(()=>{
+                            this.submitButton.loading = false;
+                            this.submitButton.disabled = false;
                         })
                     }
-                }).then(()=>{
-                    this.submitButton.loading = false;
-                    this.submitButton.disabled = false;
                 })
             },
             // 重置
