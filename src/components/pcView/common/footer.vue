@@ -45,7 +45,7 @@
         methods: {
             // 获取位置
             getIPLocation(){
-                let url = 'http://pv.sohu.com/cityjson?ie=utf-8';
+                let url = 'https://pv.sohu.com/cityjson?ie=utf-8';
                 var script = document.createElement('script'); 
                 script.src = url;
                 document.getElementById('appHeader').appendChild(script);
