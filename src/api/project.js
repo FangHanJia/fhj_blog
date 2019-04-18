@@ -17,7 +17,7 @@ export default{
             url: '/repos/' + githubUsername + '/' + githubUsername + '.github.io/contents/static/configuration.json',
             method: 'PUT',
             data: {
-                'message': 'a',
+                'message': 'update-system',
                 'content': require('js-base64').Base64.encode(content),
                 'sha': sha
             }
