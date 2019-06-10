@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/*
+ * 基础模块 & 全局变量配置
+ *
+ */
+
+// 文本配置
+$fontSize       : 20px !default;
+$fontFamily     : "San Francisco", "Helvetica Neue", Helvetica,  Microsoft YaHei, sansserif !default;
+$fontWeight     : 300 !default;
+
+// 颜色配置
+$appColor      : #F4472C;     
+$appBackground : linear-gradient(270deg, #f3352c, #f6632d);;
+$textColor     : #fff;
+
+/*
+ * 共同继承样式
+ */
+
+// 防止溢出
+%hidden{
+    overflow: hidden;
+}
+// 相对定位
+%relative{
+    position: relative;
+}
+// 绝对定位
+%absolute{
+    position: absolute;
+    top:0;
+    left:0;
+}
+// 垂直居中弹性盒
+%flex-column{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+}
+// 单行省略号
+%singleLine{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+}
+// 盒子高度
+%boxHeight{
+    height: 100%;
+    padding-top: 4.1rem;
+}
+// 主体高度
+%mainHeight{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+// 图片自适应
+%imgFit{
+    width: 100%;
+    height: 100%;
+    @extend %absolute;
+}

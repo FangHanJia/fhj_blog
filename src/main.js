@@ -23,6 +23,8 @@ import 'mavon-editor/dist/markdown/github-markdown.min.css';
 // 引入gitalk插件
 import 'gitalk/dist/gitalk.css';
 import Gitalk from 'gitalk';
+// 引入移动端适配
+import adapter from './utils/adapter';
 
 // 全局使用
 Vue.use(Vant);
@@ -56,6 +58,7 @@ Vue.prototype.$share = function(message){
 		});
 	}
 }
+Vue.prototype.$adapter = adapter;
 
 Vue.config.productionTip = false
 
