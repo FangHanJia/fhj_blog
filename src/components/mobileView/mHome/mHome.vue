@@ -1,11 +1,14 @@
 <template>
     <div class="mhome_wrap">
         <van-nav-bar title="首页"></van-nav-bar>
-        <van-tabbar v-model="active">
+        <van-tabbar 
+            v-model="active"
+            active-color="#F4472C"
+            inactive-color="#000">
             <van-tabbar-item icon="home">首页</van-tabbar-item>
-            <van-tabbar-item icon="like">项目</van-tabbar-item>
+            <van-tabbar-item icon="edit">博客</van-tabbar-item>
             <van-tabbar-item icon="description">书架</van-tabbar-item>
-            <van-tabbar-item icon="setting">标签</van-tabbar-item>
+            <van-tabbar-item icon="contact">我的</van-tabbar-item>
         </van-tabbar>
         <!-- <van-popup v-model="isShow">手机端开发中...</van-popup> -->
     </div>
