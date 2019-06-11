@@ -5,24 +5,30 @@
             v-model="active"
             active-color="#F4472C"
             inactive-color="#000">
-            <van-tabbar-item icon="home">首页</van-tabbar-item>
-            <van-tabbar-item icon="edit">博客</van-tabbar-item>
+            <van-tabbar-item 
+                :icon="item.meta.icon" 
+                v-for="(item, key) in constantRouterMap" 
+                :key="key" 
+                v-if="item.meta && item.meta.type == 'mobile'">{{item.meta.title}}</van-tabbar-item>
+            <!-- <van-tabbar-item icon="edit">博客</van-tabbar-item>
             <van-tabbar-item icon="description">书架</van-tabbar-item>
-            <van-tabbar-item icon="contact">我的</van-tabbar-item>
+            <van-tabbar-item icon="contact">我的</van-tabbar-item> -->
         </van-tabbar>
-        <!-- <van-popup v-model="isShow">手机端开发中...</van-popup> -->
     </div>
 </template>
 <script>
+    import { constantRouterMap } from '@/router'
+
     export default {
         data(){
             return{
-                isShow: true,
-                active: 0
+                active: 0,
+                constantRouterMap
             }
         },
         created(){
-            this.$adapter.$adapter
+            this.$adapter.$adapter;
+            console.log(this.constantRouterMap);
         },
         methods: {
             // 开发中

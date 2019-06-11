@@ -122,9 +122,31 @@ export const constantRouterMap = [
         component: resolve => require(['../components/mobileView/mHome/mHome.vue'], resolve),
         name:'mHome',
         meta:{
-            title:'首页'
+            title: '动态',
+            type: 'mobile',   
+            icon: 'home'
         }
     },
+    {
+        path:'/mobile/mBlog',
+        component: resolve => require(['../components/mobileView/mBlog/mBlog.vue'], resolve),
+        name:'mBlog',
+        meta:{
+            title: '博客',
+            type: 'mobile',   
+            icon: 'edit'
+        }
+    },
+    // {
+    //     path:'/mobile/mBookshelf',
+    //     component: resolve => require(['../components/mobileView/mBookshelf/mBookshelf.vue'], resolve),
+    //     name:'mBookshelf',
+    //     meta:{
+    //         title: '书架',
+    //         type: 'mobile',   
+    //         icon: 'description'
+    //     }
+    // },
 ];
 const router =  new Router({
 	routes: constantRouterMap
