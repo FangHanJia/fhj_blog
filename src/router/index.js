@@ -137,16 +137,26 @@ export const constantRouterMap = [
             icon: 'edit'
         }
     },
-    // {
-    //     path:'/mobile/mBookshelf',
-    //     component: resolve => require(['../components/mobileView/mBookshelf/mBookshelf.vue'], resolve),
-    //     name:'mBookshelf',
-    //     meta:{
-    //         title: '书架',
-    //         type: 'mobile',   
-    //         icon: 'description'
-    //     }
-    // },
+    {
+        path:'/mobile/mBookshelf',
+        component: resolve => require(['../components/mobileView/mBookshelf/mBookshelf.vue'], resolve),
+        name:'mBookshelf',
+        meta:{
+            title: '书架',
+            type: 'mobile',   
+            icon: 'description'
+        }
+    },
+    {
+        path:'/mobile/mSelf',
+        component: resolve => require(['../components/mobileView/mSelf/mSelf.vue'], resolve),
+        name:'mSelf',
+        meta:{
+            title: '博主',
+            type: 'mobile',   
+            icon: 'contact'
+        }
+    },
 ];
 const router =  new Router({
 	routes: constantRouterMap
