@@ -25,6 +25,12 @@
 				console.log(window.location.hash.split("/"));
 				let windowSize = this.$util.getWindowSize();
 				let pathArr = window.location.hash.split("/");
+				if(windowSize.height > windowSize.width * 1.2){
+					this.$router.push('/mobile/mHome');
+				}
+				if(windowSize.height <= windowSize.width * 1.2){
+					this.$router.push('/');
+				}
 				if(pathArr[1] == 'pc' && windowSize.height > windowSize.width * 1.2){
 					this.$router.push('/mobile/mHome');
 				}
