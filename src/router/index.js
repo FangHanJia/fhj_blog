@@ -119,47 +119,106 @@ export const constantRouterMap = [
     // mobile
     {
         path:'/mobile/mHome',
-        component: resolve => require(['../components/mobileView/mHome/mHome.vue'], resolve),
+        component: resolve => require(['../components/mobileView/layout/layout.vue'], resolve),
         name:'mHome',
+        redirect: '/mobile/mHome/mainHome',
         meta:{
             title: '动态',
             type: 'mobile',   
             icon: 'home'
-        }
+        },
+        children:[
+            {
+                path: 'mainHome',
+                component: resolve => require(['../components/mobileView/mHome/mHome.vue'], resolve),
+                meta:{
+                    scrollTop: true,
+                    title: '动态',
+                    type: 'mobile',   
+                    icon: 'home'
+                },
+            }
+        ]
     },
     {
         path:'/mobile/mBlog',
-        component: resolve => require(['../components/mobileView/mBlog/mBlog.vue'], resolve),
+        component: resolve => require(['../components/mobileView/layout/layout.vue'], resolve),
         name:'mBlog',
+        redirect: '/mobile/mBlog/mainBlog',
         meta:{
             title: '博客',
             type: 'mobile',   
             icon: 'edit'
-        }
+        },
+        children:[
+            {
+                path: 'mainBlog',
+                component: resolve => require(['../components/mobileView/mBlog/mBlog.vue'], resolve),
+                meta: {
+                    scrollTop: true,
+                    title: '博客',
+                    type: 'mobile',   
+                    icon: 'edit'
+                }
+            }
+        ]
     },
     {
         path:'/mobile/mBookshelf',
-        component: resolve => require(['../components/mobileView/mBookshelf/mBookshelf.vue'], resolve),
+        component: resolve => require(['../components/mobileView/layout/layout.vue'], resolve),
         name:'mBookshelf',
+        redirect: '/mobile/mBookshelf/mainBookshelf',
         meta:{
             title: '书架',
             type: 'mobile',   
             icon: 'description'
-        }
+        },
+        children:[
+            {
+                path: 'mainBookshelf',
+                component: resolve => require(['../components/mobileView/mBookshelf/mBookshelf.vue'], resolve),
+                meta: {
+                    scrollTop: true,
+                    title: '书架',
+                    type: 'mobile',   
+                    icon: 'description'
+                }
+            }
+        ]
     },
     {
         path:'/mobile/mSelf',
-        component: resolve => require(['../components/mobileView/mSelf/mSelf.vue'], resolve),
+        component: resolve => require(['../components/mobileView/layout/layout.vue'], resolve),
         name:'mSelf',
+        redirect: '/mobile/mSelf/mainSelf',
         meta:{
             title: '博主',
             type: 'mobile',   
             icon: 'contact'
-        }
+        },
+        children:[
+            {
+                path: 'mainSelf',
+                component: resolve => require(['../components/mobileView/mSelf/mSelf.vue'], resolve),
+                meta: {
+                    scrollTop: true,
+                    title: '博主',
+                    type: 'mobile',   
+                    icon: 'contact'
+                }
+            }
+        ]
     },
 ];
 const router =  new Router({
-	routes: constantRouterMap
+    routes: constantRouterMap,
+    scrollBehavior(to, from, savedPosition) {
+        if (to.meta.scrollTop) {
+            return { x: 0, y: 0 }
+        }else{
+            return savedPosition
+        }
+    }
 });
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title;

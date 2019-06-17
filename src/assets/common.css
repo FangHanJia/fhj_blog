@@ -69,3 +69,15 @@ i{font-style:normal;}
         opacity: 1;
     }
 }
+/* 盒子高度 */
+.boxHeight{
+    height: 100%;
+    padding-bottom: 1rem;
+}
+/* 容器盒子 */
+.mainHeight{
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
