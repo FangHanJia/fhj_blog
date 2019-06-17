@@ -11,7 +11,7 @@ export default {
                         if(clientWidth >= 640){
                             docEl.style.fontSize = '20px';
                         }else{
-                            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                            docEl.style.fontSize = 75 * (clientWidth / 750) + 'px';
                         }
                     };
 
