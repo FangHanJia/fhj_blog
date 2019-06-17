@@ -79,5 +79,6 @@ i{font-style:normal;}
     height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+    background: #f6f6f6;
 }

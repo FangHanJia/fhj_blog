@@ -1,5 +1,15 @@
 <template>
     <div class="mhome_wrap">
+        <van-list
+            v-model="loadingConfig.loading"
+            :finished="loadingConfig.finished"
+            finished-text="没有更多了"
+            @load="onLoad">
+            <van-cell
+                v-for="(item, key) in listData"
+                :key="key"
+            />
+        </van-list>
         <van-nav-bar title="首页"></van-nav-bar>
         <van-panel title="标题" desc="描述信息" status="状态">
             <div>内容</div>
@@ -17,7 +27,15 @@
         data(){
             return{
                 active: 0,
-                constantRouterMap
+                constantRouterMap,
+                // 加载配置
+                loadingConfig:{
+                    loading : false,
+                    finished: true
+                },
+                // 临时数据
+                newList: [],
+                listData: []
             }
         },
         created(){
@@ -25,8 +43,8 @@
             console.log(this.constantRouterMap);
         },
         methods: {
-            // 开发中
-            developing(){
+            // 加载更多
+            onLoad(){
 
             }
         }
