@@ -1,23 +1,12 @@
 <template>
     <div class="mhome_wrap">
+        <van-nav-bar title="首页"></van-nav-bar>
         <van-list
             v-model="loadingConfig.loading"
             :finished="loadingConfig.finished"
             finished-text="没有更多了"
             @load="onLoad">
-            <van-cell
-                v-for="(item, key) in listData"
-                :key="key"
-            />
         </van-list>
-        <van-nav-bar title="首页"></van-nav-bar>
-        <van-panel title="标题" desc="描述信息" status="状态">
-            <div>内容</div>
-            <div slot="footer">
-            <van-button size="small">按钮</van-button>
-            <van-button size="small" type="danger">按钮</van-button>
-            </div>
-        </van-panel>
     </div>
 </template>
 <script>
@@ -50,4 +39,14 @@
         }
     }
 </script>
+<style lang="scss">
+    .mhome_wrap{
+        .panel_header{
+            height: 40px;
+            border-bottom: 1px solid #f1f1f1;
+            text-align: center;
+        }
+    }
+</style>
+
 
