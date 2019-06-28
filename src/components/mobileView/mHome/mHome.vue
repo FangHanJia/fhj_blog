@@ -6,6 +6,9 @@
             :finished="loadingConfig.finished"
             finished-text="没有更多了"
             @load="onLoad">
+            <ul>
+                <li>首页</li>
+            </ul>
         </van-list>
     </div>
 </template>
@@ -28,8 +31,6 @@
             }
         },
         created(){
-            this.$adapter.$adapter;
-            console.log(this.constantRouterMap);
         },
         methods: {
             // 加载更多
@@ -45,6 +46,11 @@
             height: 40px;
             border-bottom: 1px solid #f1f1f1;
             text-align: center;
+        }
+        ul{
+            li{
+                font-size: 20px;
+            }
         }
     }
 </style>

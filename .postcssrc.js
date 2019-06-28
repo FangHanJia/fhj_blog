@@ -8,9 +8,10 @@ module.exports = {
     "autoprefixer": {
       browsers: ['Android >= 4.0', 'iOS >= 7']
     },
-    // 'postcss-pxtorem': {
-    //   rootValue: 10, // vant转化1：10 => 设计图1:20
-    //   propList: ['*']
-    // }
+    'postcss-pxtorem': {
+      rootValue: 20, // vant转化1：10 => 设计图1:20
+      propList: ['*'],
+      "selectorBlackList": ["el-","markdown-"]
+    }
   }
 }

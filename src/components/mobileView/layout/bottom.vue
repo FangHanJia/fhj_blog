@@ -24,8 +24,6 @@
             }
         },
         created(){
-            this.$adapter.$adapter;
-            console.log(this.constantRouterMap);
         },
         methods: {
             // 开发中

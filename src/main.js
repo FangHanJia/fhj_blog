@@ -58,7 +58,7 @@ Vue.prototype.$share = function(message){
 		});
 	}
 }
-Vue.prototype.$adapter = adapter;
+// Vue.prototype.$adapter = adapter;
 
 Vue.config.productionTip = false
 
