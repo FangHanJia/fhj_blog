@@ -6,15 +6,11 @@
             :finished="loadingConfig.finished"
             finished-text="没有更多了"
             @load="onLoad">
-            <ul>
-                <li>首页</li>
-            </ul>
         </van-list>
     </div>
 </template>
 <script>
     import { constantRouterMap } from '@/router'
-
     export default {
         data(){
             return{
@@ -27,7 +23,7 @@
                 },
                 // 临时数据
                 newList: [],
-                listData: []
+                listData: [],
             }
         },
         created(){
@@ -36,11 +32,11 @@
             // 加载更多
             onLoad(){
 
-            }
+            },
         }
     }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     .mhome_wrap{
         .panel_header{
             height: 40px;
@@ -49,7 +45,9 @@
         }
         ul{
             li{
-                font-size: 32px;
+                font-size: 16px;
+                color: $appColor;
+                @extend %relative;
             }
         }
     }

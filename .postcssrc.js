@@ -9,7 +9,7 @@ module.exports = {
       browsers: ['Android >= 4.0', 'iOS >= 7']
     },
     'postcss-pxtorem': {
-      rootValue: 20, // vant转化1：10 => 设计图1:20
+      rootValue: 40, // vant转化1：10 => 设计图1:20
       propList: ['*'],
       "selectorBlackList": ["el-","markdown-"]
     }

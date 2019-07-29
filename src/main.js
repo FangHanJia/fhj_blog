@@ -10,6 +10,7 @@ import requestHttp from './utils/requestHttp.js';
 
 // 引入重置样式
 import './assets/common.css';
+import './assets/resetStyles.scss';
 // 引入Vant 组件库
 import Vant from 'vant';
 import 'vant/lib/vant-css/index.css';
