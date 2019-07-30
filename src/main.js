@@ -13,7 +13,7 @@ import './assets/common.css';
 import './assets/resetStyles.scss';
 // 引入Vant 组件库
 import Vant from 'vant';
-import 'vant/lib/vant-css/index.css';
+import 'vant/lib/index.css';
 // 引入element组件库
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';

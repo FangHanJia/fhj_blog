@@ -125,7 +125,7 @@ export const constantRouterMap = [
         meta:{
             title: '动态',
             type: 'mobile',   
-            icon: 'home'
+            icon: 'wap-home'
         },
         children:[
             {
@@ -135,7 +135,7 @@ export const constantRouterMap = [
                     scrollTop: true,
                     title: '动态',
                     type: 'mobile',   
-                    icon: 'home'
+                    icon: 'wap-home'
                 },
             }
         ]
