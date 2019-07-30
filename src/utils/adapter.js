@@ -102,7 +102,7 @@ export default {
             var width = docEl.getBoundingClientRect().width;
             //注意这里，这里是适配手机的一个具体的参数，相对大于540的就不适用了
             console.log(width);
-            if(width > 1080){
+            if(width > 1280){
                 docEl.style.fontSize = 18 + 'px';
                 return
             }
